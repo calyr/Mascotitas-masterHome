@@ -26,20 +26,20 @@ public class PerfilFragment extends Fragment {
     public PerfilFragment() {
         mascotas = new ArrayList<Mascota>();
 
-        mascotas.add(new Mascota(R.drawable.primero, "Rambo", 0));
-        mascotas.add(new Mascota(R.drawable.segundo, "Dina", 1));
-        mascotas.add(new Mascota(R.drawable.tercero, "Perla", 2));
-        mascotas.add(new Mascota(R.drawable.cuarto, "Steben", 3));
-        mascotas.add(new Mascota(R.drawable.quinto, "Choco", 3));
-        mascotas.add(new Mascota(R.drawable.sexto, "Filulay", 3));
-        mascotas.add(new Mascota(R.drawable.septimo, "Betoben", 3));
-        mascotas.add(new Mascota(R.drawable.octavo, "Mimo", 3));
+        mascotas.add(new Mascota(1,R.drawable.primero, "Rambo", 0,0));
+        mascotas.add(new Mascota(2,R.drawable.segundo, "Dina", 1,0));
+        mascotas.add(new Mascota(3,R.drawable.tercero, "Perla", 2,0));
+        mascotas.add(new Mascota(4,R.drawable.cuarto, "Steben", 3,0));
+        mascotas.add(new Mascota(5,R.drawable.quinto, "Choco", 3,0));
+        mascotas.add(new Mascota(6,R.drawable.sexto, "Filulay", 3,0));
+        mascotas.add(new Mascota(7,R.drawable.septimo, "Betoben", 3,0));
+        mascotas.add(new Mascota(8,R.drawable.octavo, "Mimo", 3,0));
 
 
     }
 
     private void inicializarListaMascotas() {
-        MascotaAdapter ada = new MascotaAdapter(mascotas, 1);
+        MascotaAdapter ada = new MascotaAdapter(mascotas, 1, this.getActivity());
         rv.setAdapter(ada);
     }
 

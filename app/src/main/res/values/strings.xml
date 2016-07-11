@@ -2,7 +2,8 @@
     <string name="app_name">Petagram</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Sett</string>
+    <string name="action_search">Search</string>
     <string name="title_activity_detalle">Petagram</string>
 
     <string name="mAbout">Acerca de</string>

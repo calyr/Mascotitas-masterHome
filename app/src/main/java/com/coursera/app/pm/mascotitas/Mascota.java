@@ -8,6 +8,24 @@ public class Mascota {
     private int imagen;
     private String nombre;
     private int retuit;
+    private int likes;
+    private int id;
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getImagen() {
         return imagen;
@@ -33,10 +51,12 @@ public class Mascota {
         this.retuit = retuit;
     }
 
-    public Mascota(int imagen, String nombre, int retuit) {
+    public Mascota(int id, int imagen, String nombre, int retuit,int likes) {
+        this.id = id;
         this.imagen = imagen;
         this.nombre = nombre;
         this.retuit = retuit;
+        this.likes = likes;
     }
 
 

@@ -1,5 +1,6 @@
 package com.coursera.app.pm.mascotitas;
 
+import android.app.Activity;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
@@ -8,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.coursera.app.pm.mascotitas.db.ManagerMascotas;
 
 import java.util.ArrayList;
 
@@ -16,12 +20,13 @@ import java.util.ArrayList;
  */
 public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaViewHolder> {
 
-
+    Activity activity;
     ArrayList<Mascota> mascotas;
     private int tipo = 0;
 
-    public MascotaAdapter(ArrayList<Mascota> mascotas, int tipo) {
+    public MascotaAdapter(ArrayList<Mascota> mascotas, int tipo, Activity activity) {
         this.mascotas = mascotas;
+        this.activity = activity;
     }
 
     @Override
@@ -39,11 +44,33 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
     }
 
     @Override
-    public void onBindViewHolder(MascotaViewHolder mascotaViewHolder, int i) {
-        Mascota masconta = mascotas.get(i);
+    public void onBindViewHolder(final MascotaViewHolder mascotaViewHolder, int i) {
+        final Mascota masconta = mascotas.get(i);
 //        mascotaViewHolder.imgFoto.setImageResource(contacto.getFoto() );
         mascotaViewHolder.foto.setImageResource(masconta.getImagen());
         mascotaViewHolder.nombre.setText(masconta.getNombre());
+        mascotaViewHolder.retuit.setText(String.valueOf(masconta.getRetuit()));
+
+        mascotaViewHolder.foto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ManagerMascotas manager = new ManagerMascotas(activity);
+                manager.retuitMascota(masconta);
+                mascotaViewHolder.retuit.setText(String.valueOf(manager.getRetuitMascota(masconta)));
+
+            }
+        });
+
+        mascotaViewHolder.nombre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ManagerMascotas manager = new ManagerMascotas(activity);
+                manager.retuitMascota(masconta);
+                mascotaViewHolder.retuit.setText( String.valueOf( manager.getRetuitMascota(masconta)));
+
+            }
+        });
+
 
     }
 
@@ -56,11 +83,13 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
 
         private TextView nombre;
         private ImageView foto;
+        private TextView retuit;
 
         public MascotaViewHolder(View itemView) {
             super(itemView);
             nombre = (TextView) itemView.findViewById(R.id.nombre);
             foto = (ImageView) itemView.findViewById(R.id.imgFoto);
+            retuit = (TextView) itemView.findViewById(R.id.cantidad);
         }
     }
 }

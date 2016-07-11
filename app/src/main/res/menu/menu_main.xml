@@ -3,16 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
 
     <item android:id="@+id/action_star"
+        android:title="@string/action_search"
+
         android:orderInCategory="100"
         android:icon="@drawable/start"
-        app:showAsAction="always"
-        android:title="" />
+        app:showAsAction="ifRoom"
+        />
 
-    <item android:id="@+id/action_settings"
-          android:title="@string/action_settings"
+    <item android:id="@+id/mAbout"
+          android:title="@string/mAbout"
         android:icon="@drawable/setting"
-        android:orderInCategory="101"
-        app:showAsAction="always" />
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/mContact"
+        android:title="@string/mContact"
+        android:icon="@drawable/setting"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
 
 
 </menu>

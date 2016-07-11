@@ -9,7 +9,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
+
+import com.coursera.app.pm.mascotitas.db.ManagerMascotas;
 
 import java.util.ArrayList;
 
@@ -26,17 +29,18 @@ public class DetalleActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        mascotas = new ArrayList<Mascota>();
 
-        mascotas.add(new Mascota(R.drawable.primero,"Rambo",0));
-        //mascotas.add(new Mascota(R.drawable.segundo,"Dina",1));
-        mascotas.add(new Mascota(R.drawable.tercero,"Perla",2));
-        //mascotas.add(new Mascota(R.drawable.cuarto,"Steben",3));
-        mascotas.add(new Mascota(R.drawable.quinto,"Choco",3));
-        //mascotas.add(new Mascota(R.drawable.sexto,"Filulay",3));
-        mascotas.add(new Mascota(R.drawable.septimo,"Betoben",3));
-        mascotas.add(new Mascota(R.drawable.octavo,"Mimo",3));
 
+        ManagerMascotas manager = new ManagerMascotas(this);
+
+
+        mascotas = manager.fiveRetuitMascotas();
+
+        if(mascotas.size()==0){
+            Toast.makeText(this,"No hay ninguna mascota retuiteada", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Haz click en el Nombre o en la Imagen.", Toast.LENGTH_LONG).show();
+
+        }
         rv = (RecyclerView) findViewById(R.id.rvMascotasDetalle);
 
         //GridLayoutManager glm = new GridLayoutManager(this,2);
@@ -51,7 +55,7 @@ public class DetalleActivity extends AppCompatActivity {
     }
 
     private void inicializarListaMascotas() {
-        MascotaAdapter ada = new MascotaAdapter(mascotas, 0);
+        MascotaAdapter ada = new MascotaAdapter(mascotas, 0, this);
         rv.setAdapter( ada );
     }
 

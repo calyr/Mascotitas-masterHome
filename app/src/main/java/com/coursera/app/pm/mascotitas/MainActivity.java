@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
 
+        setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_opciones, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -65,14 +65,19 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.mAbout) {
-            Toast.makeText(this, "Acerca de", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Acerca de", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(this, AboutActivity.class);
             startActivity(intent);
         } else if (id == R.id.mContact) {
-            Toast.makeText(this, "Contacto", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Contacto", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(this, ContactoActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.action_star) {
+            //Toast.makeText(this, "detalle", Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent(this, DetalleActivity.class);
             startActivity(intent);
         }
 

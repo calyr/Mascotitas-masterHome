@@ -11,60 +11,65 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.coursera.app.pm.mascotitas.presenter.HomeFragmentPresenter;
+import com.coursera.app.pm.mascotitas.presenter.IHomeFragmentPresenter;
+import com.coursera.app.pm.mascotitas.view.IHomeFragmentView;
+
 import java.util.ArrayList;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements IHomeFragmentView {
 
     private ArrayList<Mascota> mascotas;
     private RecyclerView rv;
+    private IHomeFragmentPresenter presenter;
 
     public HomeFragment() {
         // Required empty public constructor
 
-        mascotas = new ArrayList<Mascota>();
+        /*mascotas = new ArrayList<Mascota>();
 
-        mascotas.add(new Mascota(R.drawable.primero, "Rambo", 0));
-        mascotas.add(new Mascota(R.drawable.segundo, "Dina", 1));
-        mascotas.add(new Mascota(R.drawable.tercero, "Perla", 2));
-        mascotas.add(new Mascota(R.drawable.cuarto, "Steben", 3));
-        mascotas.add(new Mascota(R.drawable.quinto, "Choco", 3));
-        mascotas.add(new Mascota(R.drawable.sexto, "Filulay", 3));
-        mascotas.add(new Mascota(R.drawable.septimo, "Betoben", 3));
-        mascotas.add(new Mascota(R.drawable.octavo, "Mimo", 3));
 
+*/
 
     }
-
-    private void inicializarListaMascotas() {
-        MascotaAdapter ada = new MascotaAdapter(mascotas, 0);
-        rv.setAdapter(ada);
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home, container, false);
-
         rv = (RecyclerView) v.findViewById(R.id.rvMascotas);
-
         //GridLayoutManager glm = new GridLayoutManager(this,2);
+        this.generarLinearLayoutVertical();
 
+
+        //initAdapterRvHome(createAdapter(mascotas));
+        presenter = new HomeFragmentPresenter(this,getContext());
+        return v;
+    }
+
+    @Override
+    public void initAdapterRvHome(MascotaAdapter adapter) {
+
+        rv.setAdapter(adapter);
+    }
+
+    @Override
+    public void generarLinearLayoutVertical() {
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
 
         //rv.setLayoutManager(glm);
         rv.setLayoutManager(llm);
-        inicializarListaMascotas();
-
-        return v;
-        //
     }
 
-
+    @Override
+    public MascotaAdapter createAdapter(ArrayList<Mascota> mascotas) {
+        MascotaAdapter ada = new MascotaAdapter(mascotas, 0,this.getActivity());
+        return ada;
+    }
 }
