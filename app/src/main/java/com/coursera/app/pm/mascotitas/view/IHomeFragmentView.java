@@ -1,6 +1,6 @@
 package com.coursera.app.pm.mascotitas.view;
 
-import com.coursera.app.pm.mascotitas.Mascota;
+import com.coursera.app.pm.mascotitas.pojo.Mascota;
 import com.coursera.app.pm.mascotitas.MascotaAdapter;
 
 import java.util.ArrayList;

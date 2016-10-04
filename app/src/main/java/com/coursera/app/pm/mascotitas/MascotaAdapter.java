@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.coursera.app.pm.mascotitas.pojo.Mascota;
+
 
 import com.coursera.app.pm.mascotitas.db.ManagerMascotas;
 

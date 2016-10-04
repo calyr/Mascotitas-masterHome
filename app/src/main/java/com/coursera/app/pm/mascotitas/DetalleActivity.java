@@ -1,5 +1,6 @@
 package com.coursera.app.pm.mascotitas;
 
+import com.coursera.app.pm.mascotitas.pojo.Mascota;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

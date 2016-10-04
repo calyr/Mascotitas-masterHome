@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import com.coursera.app.pm.mascotitas.presenter.HomeFragmentPresenter;
 import com.coursera.app.pm.mascotitas.presenter.IHomeFragmentPresenter;
 import com.coursera.app.pm.mascotitas.view.IHomeFragmentView;
+import com.coursera.app.pm.mascotitas.pojo.Mascota;
+
 
 import java.util.ArrayList;
 

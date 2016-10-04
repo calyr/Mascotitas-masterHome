@@ -3,7 +3,7 @@ package com.coursera.app.pm.mascotitas.db;
 import android.content.ContentValues;
 import android.content.Context;
 
-import com.coursera.app.pm.mascotitas.Mascota;
+import com.coursera.app.pm.mascotitas.pojo.Mascota;
 import com.coursera.app.pm.mascotitas.R;
 
 import java.lang.reflect.Array;

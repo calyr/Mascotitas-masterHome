@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 
-import com.coursera.app.pm.mascotitas.Mascota;
+import com.coursera.app.pm.mascotitas.pojo.Mascota;
 
 import java.util.ArrayList;
 import java.util.Queue;
