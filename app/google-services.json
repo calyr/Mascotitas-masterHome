@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "583396501409",
+    "firebase_url": "https://courserapetagram.firebaseio.com",
+    "project_id": "courserapetagram",
+    "storage_bucket": "courserapetagram.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:583396501409:android:9566f942675d8ab4",
+        "android_client_info": {
+          "package_name": "com.coursera.app.pm.mascotitas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "583396501409-919evfrmd2ko2eaehg3pdo6huflo4smt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.coursera.app.pm.mascotitas",
+            "certificate_hash": "5FDDB602F55F92FBB73C589B00BAA16C3352F1E3"
+          }
+        },
+        {
+          "client_id": "583396501409-61glipgqhbh631n18f7m34jrdq4p9fgu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA73lQT0kfuIfn0YklnnSQVoJuy7ikUTtI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "583396501409-61glipgqhbh631n18f7m34jrdq4p9fgu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
