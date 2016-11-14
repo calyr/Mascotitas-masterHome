@@ -66,7 +66,7 @@ public class HomeFragmentPresenter implements IHomeFragmentPresenter {
                //Log.d(TAG, lista.getMascotas().toString());
                 Log.d(TAG, ConstantesRestApi.URL_BASE);
                 Log.d(TAG, ConstantesRestApi.URL_GET_RECENT_MEDIA_USER);
-               mascotas = lista.getMascotas();
+                mascotas = lista.getMascotas();
 
                 //mostrarMascotasRV();
 
