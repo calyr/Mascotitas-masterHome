@@ -1,10 +1,15 @@
 package com.coursera.app.pm.mascotitas;
 
 
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,6 +22,7 @@ import com.coursera.app.pm.mascotitas.view.IHomeFragmentView;
 import com.coursera.app.pm.mascotitas.pojo.Mascota;
 
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 
@@ -30,6 +36,10 @@ public class HomeFragment extends Fragment implements IHomeFragmentView {
     private IHomeFragmentPresenter presenter;
 
     public HomeFragment() {
+
+
+
+
         // Required empty public constructor
 
         /*mascotas = new ArrayList<Mascota>();

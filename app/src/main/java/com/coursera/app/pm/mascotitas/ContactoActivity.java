@@ -1,15 +1,27 @@
 package com.coursera.app.pm.mascotitas;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.iid.FirebaseInstanceId;
+
 public class ContactoActivity extends AppCompatActivity {
+    private static final String TAG = "ContactoActivity" ;
     private Toolbar mToolbar;
     private EditText nombre;
     private EditText correo;
@@ -27,6 +39,25 @@ public class ContactoActivity extends AppCompatActivity {
         nombre = (EditText) findViewById(R.id.form_name);
         correo = (EditText) findViewById(R.id.form_email);
         mensaje = (EditText) findViewById(R.id.form_description);
+
+        Intent i = new Intent(this, MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_ONE_SHOT);
+
+        Uri sonido = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+
+        NotificationCompat.Builder notification = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.bone)
+                .setContentTitle("Notificación")
+                .setContentText("Hola Mundo")
+                .setSound(sonido)
+                .setAutoCancel(true)
+                .setContentIntent(pendingIntent);
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(0, notification.build());
+
+        String token = FirebaseInstanceId.getInstance().getToken();
+        Log.d(TAG, "onMessageReceived:  "+ token);
     }
 
     @Override
