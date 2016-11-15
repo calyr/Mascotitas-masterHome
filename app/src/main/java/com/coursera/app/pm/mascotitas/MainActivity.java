@@ -1,22 +1,17 @@
 package com.coursera.app.pm.mascotitas;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
-import com.coursera.app.pm.mascotitas.Adapter.PageAdapter;
+import com.coursera.app.pm.mascotitas.adapter.PageAdapter;
 
 import java.util.ArrayList;
 

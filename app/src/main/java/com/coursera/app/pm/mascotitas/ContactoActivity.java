@@ -18,7 +18,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.coursera.app.pm.mascotitas.restApi.EndpointsApi;
+import com.coursera.app.pm.mascotitas.restApi.adapter.RestApiAdapter;
+import com.coursera.app.pm.mascotitas.restApi.model.UsuarioResponse;
 import com.google.firebase.iid.FirebaseInstanceId;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ContactoActivity extends AppCompatActivity {
     private static final String TAG = "ContactoActivity" ;
@@ -58,6 +65,25 @@ public class ContactoActivity extends AppCompatActivity {
 
         String token = FirebaseInstanceId.getInstance().getToken();
         Log.d(TAG, "onMessageReceived:  "+ token);
+
+        RestApiAdapter restApiAdapter = new RestApiAdapter();
+        EndpointsApi endpoints = restApiAdapter.establecerConexionRestAPI();
+        Call<UsuarioResponse> usuarioResponseCall = endpoints.registrarTokenId(token);
+
+        usuarioResponseCall.enqueue(new Callback<UsuarioResponse>() {
+            @Override
+            public void onResponse(Call<UsuarioResponse> call, Response<UsuarioResponse> response) {
+                UsuarioResponse usuarioResponse = response.body();
+                Log.d("ID FIREBASE", usuarioResponse.getId());
+                Log.d("TOKEN FIREBASE", usuarioResponse.getToken());
+            }
+
+            @Override
+            public void onFailure(Call<UsuarioResponse> call, Throwable t) {
+
+            }
+        });
+
     }
 
     @Override

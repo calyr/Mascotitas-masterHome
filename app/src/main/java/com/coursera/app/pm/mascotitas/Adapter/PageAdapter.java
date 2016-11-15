@@ -1,4 +1,4 @@
-package com.coursera.app.pm.mascotitas.Adapter;
+package com.coursera.app.pm.mascotitas.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
