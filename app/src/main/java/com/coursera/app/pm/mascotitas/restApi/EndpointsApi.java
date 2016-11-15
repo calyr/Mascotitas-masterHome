@@ -27,5 +27,5 @@ public interface EndpointsApi {
 
     @FormUrlEncoded
     @POST(ConstantesRestApi.SERVER_POST_TOKEN)
-    Call<UsuarioResponse> registrarTokenId(@Field("token") String token);
+    Call<UsuarioResponse> registrarTokenId(@Field("token") String token, @Field("userInstagram") String userInstagram);
 }

@@ -13,10 +13,21 @@ package com.coursera.app.pm.mascotitas.restApi.model;
 public class UsuarioResponse {
     private String id;
     private String token;
+    private String userInstagram;
 
-    public UsuarioResponse(String id, String token) {
+    public String getUserInstagram() {
+        return userInstagram;
+    }
+
+    public void setUserInstagram(String userInstagram) {
+        this.userInstagram = userInstagram;
+    }
+
+    public UsuarioResponse(String id, String token, String userInstagram) {
         this.id = id;
         this.token = token;
+        this.userInstagram = userInstagram;
+
     }
 
     public UsuarioResponse() {

@@ -22,5 +22,17 @@
         android:orderInCategory="100"
         app:showAsAction="never" />
 
+    <item android:id="@+id/mConfigAccount"
+        android:title="@string/mConfigAccount"
+        android:icon="@drawable/setting"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/mReceiveNotif"
+        android:title="@string/mReceiveNotif"
+        android:icon="@drawable/setting"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
 
 </menu>

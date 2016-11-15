@@ -33,5 +33,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="plikes">0</string>
+    <string name="mReceiveNotif">Recibir Notificaciones</string>
+    <string name="title_config_account">Configurar Cuenta</string>
+    <string name="config_account_save">Guardar Cuenta</string>
+    <string name="config_account_form_name">Escribe tu usuario</string>
+    <string name="mConfigAccount">Configurar Cuenta</string>
 
 </resources>

@@ -23,5 +23,5 @@ public class ConstantesRestApi {
 
     //Consulta my server
     public static final String SERVER_URL_BASE = "https://mighty-forest-19952.herokuapp.com/";
-    public static final String SERVER_POST_TOKEN = "token-device";
+    public static final String SERVER_POST_TOKEN = "registrar-usuario";
 }

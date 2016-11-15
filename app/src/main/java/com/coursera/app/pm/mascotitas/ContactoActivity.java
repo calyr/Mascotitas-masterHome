@@ -29,7 +29,7 @@ import retrofit2.Response;
 
 public class ContactoActivity extends AppCompatActivity {
     private static final String TAG = "ContactoActivity" ;
-    private Toolbar mToolbar;
+    private Toolbar toolbar;
     private EditText nombre;
     private EditText correo;
     private EditText mensaje;
@@ -38,10 +38,18 @@ public class ContactoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacto);
 
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbarContacto);
 
+        if ( toolbar != null){
+            setSupportActionBar(toolbar);
+        }
+        //Agregamos el Icono
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.bone);
+
+        //Cambiamos el título de la toolbar
+        getSupportActionBar().setTitle("    Contacto");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         nombre = (EditText) findViewById(R.id.form_name);
         correo = (EditText) findViewById(R.id.form_email);
@@ -66,9 +74,11 @@ public class ContactoActivity extends AppCompatActivity {
         String token = FirebaseInstanceId.getInstance().getToken();
         Log.d(TAG, "onMessageReceived:  "+ token);
 
+        String userInstagram =  "calyr123";
+
         RestApiAdapter restApiAdapter = new RestApiAdapter();
         EndpointsApi endpoints = restApiAdapter.establecerConexionRestAPI();
-        Call<UsuarioResponse> usuarioResponseCall = endpoints.registrarTokenId(token);
+        Call<UsuarioResponse> usuarioResponseCall = endpoints.registrarTokenId(token, userInstagram);
 
         usuarioResponseCall.enqueue(new Callback<UsuarioResponse>() {
             @Override
@@ -110,16 +120,16 @@ public class ContactoActivity extends AppCompatActivity {
 
     public void confirmarDatos(View view) {
         Toast.makeText(this, "Se esta enviando el correo.", Toast.LENGTH_LONG).show();
-            //Getting content for email
-            String email = correo.getText().toString().trim();
-            String subject = "Mensaje de applicacion";//nombre.getText().toString().trim();
-            String message = mensaje.getText().toString().trim();
+        //Getting content for email
+        String email = correo.getText().toString().trim();
+        String subject = "Mensaje de applicacion";//nombre.getText().toString().trim();
+        String message = mensaje.getText().toString().trim();
 
-            //Creating SendMail object
-            SendMail sm = new SendMail(this, email, subject, message);
+        //Creating SendMail object
+        SendMail sm = new SendMail(this, email, subject, message);
 
-            //Executing sendmail to send email
-            sm.execute();
+        //Executing sendmail to send email
+        sm.execute();
 
     }
 }

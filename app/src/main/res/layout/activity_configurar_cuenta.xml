@@ -6,26 +6,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.coursera.app.pm.mascotitas.ContactoActivity">
-
+    tools:context="com.coursera.app.pm.mascotitas.ConfigurarCuentaActivity">
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbarContacto"
+            android:id="@+id/toolbarConfig"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_scrollFlags="scroll|enterAlways">
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
-
-
-
     <LinearLayout
-        android:layout_below="@+id/toolbar"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -54,50 +49,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/form_name"
-                android:id="@+id/form_name" />
+                android:hint="@string/config_account_form_name"
+                android:id="@+id/config_account_form_name" />
         </android.support.design.widget.TextInputLayout>
-
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:ems="10"
-                android:id="@+id/form_email"
-                android:layout_below="@+id/form_phone"
-                android:hint="@string/form_email" />
-        </android.support.design.widget.TextInputLayout>
-
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:ems="10"
-                android:id="@+id/form_description"
-                android:hint="@string/form_description"
-                android:layout_below="@+id/form_email"
-                android:singleLine="true" />
-        </android.support.design.widget.TextInputLayout>
-
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/form_button_next"
-            android:id="@+id/form_btn_next"
-            android:layout_below="@+id/form_description"
-            android:onClick="confirmarDatos" />
-
+            android:text="@string/config_account_save"
+            android:id="@+id/button" />
     </LinearLayout>
-
 </LinearLayout>
