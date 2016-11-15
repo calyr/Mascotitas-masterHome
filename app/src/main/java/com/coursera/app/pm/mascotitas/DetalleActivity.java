@@ -27,9 +27,14 @@ public class DetalleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        if( mToolbar != null) {
+            setSupportActionBar(mToolbar);
+        }
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
 
         ManagerMascotas manager = new ManagerMascotas(this);
