@@ -38,7 +38,7 @@ public class ConfigurarCuentaActivity extends AppCompatActivity {
         }
         //Agregamos el Icono
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.drawable.bone);
+        //getSupportActionBar().setIcon(R.drawable.bone);
 
         //Cambiamos el título de la toolbar
         getSupportActionBar().setTitle("    Configurar Cuenta");

@@ -5,11 +5,13 @@ package com.coursera.app.pm.mascotitas;
  */
 public class Mascota {
 
-    private int imagen;
+    private String imagen;
     private String nombre;
     private int retuit;
     private int likes;
-    private int id;
+    private String id;
+
+
 
     public int getLikes() {
         return likes;
@@ -19,19 +21,19 @@ public class Mascota {
         this.likes = likes;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public int getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
-    public void setImagen(int imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
 
@@ -51,13 +53,23 @@ public class Mascota {
         this.retuit = retuit;
     }
 
-    public Mascota(int id, int imagen, String nombre, int retuit,int likes) {
+    public Mascota(String id, String imagen, String nombre, int retuit,int likes) {
         this.id = id;
         this.imagen = imagen;
         this.nombre = nombre;
         this.retuit = retuit;
         this.likes = likes;
     }
+
+    public  Mascota(){
+
+        this.id = "0";
+        this.imagen = "0";
+        this.nombre = "0";
+        this.retuit = 0;
+        this.likes = 0;
+    }
+
 
 
 

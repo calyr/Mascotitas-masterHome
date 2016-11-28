@@ -2,6 +2,10 @@ package com.coursera.app.pm.mascotitas.restApi.adapter;
 
 import com.coursera.app.pm.mascotitas.restApi.ConstantesRestApi;
 import com.coursera.app.pm.mascotitas.restApi.EndpointsApi;
+import com.coursera.app.pm.mascotitas.restApi.deserializador.MascotaDeserializador;
+import com.coursera.app.pm.mascotitas.restApi.model.MascotaResponse;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -18,13 +22,19 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class RestApiAdapter {
 
-    public EndpointsApi establecerConexionRestApiInstagran(){
+    public EndpointsApi establecerConexionRestApiInstagran(Gson gson){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ConstantesRestApi.URL_BASE)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
         return retrofit.create(EndpointsApi.class);
+    }
+
+    public Gson contruyeGsonDeserializadorMediaRecent(){
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(MascotaResponse.class, new MascotaDeserializador());
+        return gsonBuilder.create();
     }
 
     public EndpointsApi establecerConexionRestAPI(){

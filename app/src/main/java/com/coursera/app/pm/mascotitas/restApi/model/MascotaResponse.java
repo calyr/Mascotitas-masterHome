@@ -26,4 +26,5 @@ public class MascotaResponse {
 
     ArrayList<Mascota> mascotas;
 
+
 }

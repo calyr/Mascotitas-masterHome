@@ -14,6 +14,7 @@ import com.coursera.app.pm.mascotitas.pojo.Mascota;
 
 
 import com.coursera.app.pm.mascotitas.db.ManagerMascotas;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -49,9 +50,13 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
     public void onBindViewHolder(final MascotaViewHolder mascotaViewHolder, int i) {
         final Mascota masconta = mascotas.get(i);
 //        mascotaViewHolder.imgFoto.setImageResource(contacto.getFoto() );
-        mascotaViewHolder.foto.setImageResource(masconta.getImagen());
+       // mascotaViewHolder.foto.setImageResource(masconta.getImagen());
+        Picasso.with(activity)
+                .load(masconta.getImagen())
+                .placeholder(R.drawable.bone)
+                .into(mascotaViewHolder.foto);
         mascotaViewHolder.nombre.setText(masconta.getNombre());
-        mascotaViewHolder.retuit.setText(String.valueOf(masconta.getRetuit()));
+        mascotaViewHolder.retuit.setText(String.valueOf(masconta.getLikes()));
 
         mascotaViewHolder.foto.setOnClickListener(new View.OnClickListener() {
             @Override

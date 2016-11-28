@@ -26,14 +26,14 @@ public class PerfilFragment extends Fragment {
     public PerfilFragment() {
         mascotas = new ArrayList<Mascota>();
 
-        mascotas.add(new Mascota(1,R.drawable.primero, "Rambo", 0,0));
-        mascotas.add(new Mascota(2,R.drawable.segundo, "Dina", 1,0));
-        mascotas.add(new Mascota(3,R.drawable.tercero, "Perla", 2,0));
-        mascotas.add(new Mascota(4,R.drawable.cuarto, "Steben", 3,0));
-        mascotas.add(new Mascota(5,R.drawable.quinto, "Choco", 3,0));
-        mascotas.add(new Mascota(6,R.drawable.sexto, "Filulay", 3,0));
-        mascotas.add(new Mascota(7,R.drawable.septimo, "Betoben", 3,0));
-        mascotas.add(new Mascota(8,R.drawable.octavo, "Mimo", 3,0));
+       //mascotas.add(new Mascota(1,R.drawable.primero, "Rambo", 0,0));
+       //mascotas.add(new Mascota(2,R.drawable.segundo, "Dina", 1,0));
+       //mascotas.add(new Mascota(3,R.drawable.tercero, "Perla", 2,0));
+       //mascotas.add(new Mascota(4,R.drawable.cuarto, "Steben", 3,0));
+       //mascotas.add(new Mascota(5,R.drawable.quinto, "Choco", 3,0));
+       //mascotas.add(new Mascota(6,R.drawable.sexto, "Filulay", 3,0));
+       //mascotas.add(new Mascota(7,R.drawable.septimo, "Betoben", 3,0));
+       //mascotas.add(new Mascota(8,R.drawable.octavo, "Mimo", 3,0));
 
 
     }

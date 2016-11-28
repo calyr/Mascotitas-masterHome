@@ -59,16 +59,16 @@ public class BaseDatos extends SQLiteOpenHelper {
         String query = "SELECT * FROM "+ ConstantesBaseDatos.TABLE_MASCOTA;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor rows = db.rawQuery(query, null);
-
-        while(rows.moveToNext()){
-
-           // public Mascota(int id, int imagen, String nombre, int retuit,int likes) {
-
-                Mascota mascota = new Mascota( rows.getInt(0), rows.getInt(2), rows.getString(1), rows.getInt(3), 0);
-                mascota.setRetuit( this.obtenerRetuitMascota(mascota));
-                mascotas.add(mascota);
-        }
-        db.close();
+//
+//        while(rows.moveToNext()){
+//
+//           // public Mascota(int id, int imagen, String nombre, int retuit,int likes) {
+//
+//                Mascota mascota = new Mascota( rows.getInt(0), rows.getInt(2), rows.getString(1), rows.getInt(3), 0);
+//                mascota.setRetuit( this.obtenerRetuitMascota(mascota));
+//                mascotas.add(mascota);
+//        }
+//        db.close();
         return mascotas;
     }
 
@@ -88,14 +88,14 @@ public class BaseDatos extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor rows = db.rawQuery(query, null);
 
-        while(rows.moveToNext()){
+       //while(rows.moveToNext()){
 
-            // public Mascota(int id, int imagen, String nombre, int retuit,int likes) {
+       //    // public Mascota(int id, int imagen, String nombre, int retuit,int likes) {
 
-            Mascota mascota = new Mascota( rows.getInt(0), rows.getInt(1), rows.getString(2), rows.getInt(3), 0);
-            //mascota.setRetuit( this.obtenerRetuitMascota(mascota));
-            mascotas.add(mascota);
-        }
+       //    Mascota mascota = new Mascota( rows.getInt(0), rows.getInt(1), rows.getString(2), rows.getInt(3), 0);
+       //    //mascota.setRetuit( this.obtenerRetuitMascota(mascota));
+       //    mascotas.add(mascota);
+       //}
         db.close();
         return mascotas;
     }
