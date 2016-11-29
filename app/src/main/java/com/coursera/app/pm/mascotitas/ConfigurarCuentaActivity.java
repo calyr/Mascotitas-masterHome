@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.coursera.app.pm.mascotitas.session.SessionManager;
 
@@ -60,6 +61,8 @@ public class ConfigurarCuentaActivity extends AppCompatActivity {
             focusView.requestFocus();
         }else{
             session.createSession(userInstagram);
+            Toast.makeText(this, "Se guardo la cuenta " +userInstagram, Toast.LENGTH_LONG).show();
+
         }
 
     }
