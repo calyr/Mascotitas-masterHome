@@ -28,7 +28,7 @@ public class ConfigurarCuentaActivity extends AppCompatActivity {
         if(session.isLoggedIn() == true){
             accountUser.setText(session.getUser().get("name"));
         }else{
-            accountUser.setText("No se tiene un usuario iniciado, favor inicio session");
+            //accountUser.( R.string.hintpetagram);
         }
 
         toolbar = (Toolbar) findViewById(R.id.toolbarConfig);
