@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
-import com.coursera.app.pm.mascotitas.adapter.PageAdapter;
+import com.coursera.app.pm.mascotitas.Adapter.PageAdapter;
 import com.coursera.app.pm.mascotitas.restApi.EndpointsApi;
 import com.coursera.app.pm.mascotitas.restApi.adapter.RestApiAdapter;
 import com.coursera.app.pm.mascotitas.restApi.model.UsuarioResponse;
@@ -47,12 +47,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         setUpViewPager();
 
-
-
-
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
