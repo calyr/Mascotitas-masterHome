@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.coursera.app.pm.mascotitas.session.SessionManager;
 
@@ -28,7 +29,7 @@ public class ConfigurarCuentaActivity extends AppCompatActivity {
         if(session.isLoggedIn() == true){
             accountUser.setText(session.getUser().get("name"));
         }else{
-            accountUser.setText("No se tiene un usuario iniciado, favor inicio session");
+            //accountUser.( R.string.hintpetagram);
         }
 
         toolbar = (Toolbar) findViewById(R.id.toolbarConfig);
@@ -60,6 +61,8 @@ public class ConfigurarCuentaActivity extends AppCompatActivity {
             focusView.requestFocus();
         }else{
             session.createSession(userInstagram);
+            Toast.makeText(this, "Se guardo la cuenta " +userInstagram, Toast.LENGTH_LONG).show();
+
         }
 
     }
