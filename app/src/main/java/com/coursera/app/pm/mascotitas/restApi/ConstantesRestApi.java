@@ -1,11 +1,6 @@
 package com.coursera.app.pm.mascotitas.restApi;
 
 /**
- * <p> The ConstantesRestApi class</p>
- * <p> Nuevatel PCS de Bolivia S.A. (c) 2016.</p>
- * <p>
- * <p>El contenido de este archivo esta clasificado como: </p>
- * <p> INFORMACION DE CONFIDENCIALIDAD ALTA </p>
  *
  * @author Roberto Carlos Callisaya Mamani
  * @version 1.0

@@ -11,11 +11,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * <p> The RestApiAdapter class</p>
- * <p> Nuevatel PCS de Bolivia S.A. (c) 2016.</p>
- * <p>
- * <p>El contenido de este archivo esta clasificado como: </p>
- * <p> INFORMACION DE CONFIDENCIALIDAD ALTA </p>
  *
  * @author Roberto Carlos Callisaya Mamani
  * @version 1.0
