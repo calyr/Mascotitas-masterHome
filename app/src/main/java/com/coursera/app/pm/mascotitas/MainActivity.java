@@ -16,7 +16,7 @@ import com.coursera.app.pm.mascotitas.restApi.EndpointsApi;
 import com.coursera.app.pm.mascotitas.restApi.adapter.RestApiAdapter;
 import com.coursera.app.pm.mascotitas.restApi.model.UsuarioResponse;
 import com.google.firebase.iid.FirebaseInstanceId;
-
+import com.coursera.app.pm.mascotitas.adapter.PageAdapter;
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUpViewPager() {
-        viewPager.setAdapter(new com.coursera.app.pm.mascotitas.adapter.PageAdapter(getSupportFragmentManager(), agregarFragments()));
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragments()));
         tabLayout.setupWithViewPager(viewPager);
 
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_action_home);
