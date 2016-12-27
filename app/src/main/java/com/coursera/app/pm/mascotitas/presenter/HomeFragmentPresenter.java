@@ -60,12 +60,9 @@ public class HomeFragmentPresenter implements IHomeFragmentPresenter {
         Call<MascotaResponse> mascotaResponseCall = endpointsApi.getRecentMedia();
         Log.d(TAG, "mEtodo" );
         mascotaResponseCall.enqueue(new Callback<MascotaResponse>() {
-
-
             @Override
             public void onResponse(Call<MascotaResponse> call, Response<MascotaResponse> response) {
                MascotaResponse lista = response.body();
-
                Log.d(TAG, "INGRESO AL WEB SERVICE");
                 Log.d(TAG, lista.getMascotas().toString());
                 Log.d(TAG, lista.getMascotas().size() + " === ");
@@ -73,11 +70,8 @@ public class HomeFragmentPresenter implements IHomeFragmentPresenter {
                 Log.d(TAG, ConstantesRestApi.URL_BASE);
                 Log.d(TAG, ConstantesRestApi.URL_GET_RECENT_MEDIA_USER);
                 mascotas = lista.getMascotas();
-
                 mostrarMascotasRV();
-
             }
-
             @Override
             public void onFailure(Call<MascotaResponse> call, Throwable t) {
                 Log.d(TAG, "Ocurrio un error");

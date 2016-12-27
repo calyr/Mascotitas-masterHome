@@ -39,5 +39,7 @@
     <string name="config_account_form_name">Escribe tu usuario</string>
     <string name="mConfigAccount">Configurar Cuenta</string>
     <string name="hintpetagram">Escribe tu usuario</string>
+    <string name="like_success">Likes exitoso</string>
+    <string name="like_notsuccess">Ocurrio un error al realizar el like</string>
 
 </resources>

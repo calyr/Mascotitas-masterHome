@@ -35,12 +35,12 @@ public class MascotaDeserializador implements JsonDeserializer<MascotaResponse> 
     private ArrayList<Mascota> deserializarMascotaDeJson(JsonArray mascotaResponseData){
         ArrayList<Mascota> mascotas = new ArrayList<>();
         for (int i = 0; i < mascotaResponseData.size(); i++){
-            Log.d(TAG, "PRIMERO OBJETOS E" );
+            Log.d(TAG, "PRIMERO OBJETOS E" + new Gson().toJson(mascotaResponseData) );
            JsonObject mascotaResponseDatObject = mascotaResponseData.get(i).getAsJsonObject();
 
 
-           JsonObject userJson = mascotaResponseDatObject.getAsJsonObject(JsonKeys.USER);
-           String id = userJson.get(JsonKeys.USER_ID).getAsString();
+           JsonObject userJson = mascotaResponseDatObject.getAsJsonObject(JsonKeys.USER     );
+           String id = mascotaResponseDatObject.get(JsonKeys.USER_ID).getAsString() ;//userJson.get(JsonKeys.USER_ID).getAsString();
            String nombreCompleto = userJson.get(JsonKeys.USER_FULLNAME).getAsString();
 
            JsonObject imageJson            = mascotaResponseDatObject.getAsJsonObject(JsonKeys.MEDIA_IMAGES);
@@ -56,6 +56,7 @@ public class MascotaDeserializador implements JsonDeserializer<MascotaResponse> 
             mascotaActual.setNombre(nombreCompleto);
             mascotaActual.setLikes(likes);
             Log.d(TAG,mascotaActual.cadena());
+            Log.d(TAG, "deserializarMascotaDeJson: "+ new Gson().toJson(mascotaActual));
             mascotas.add(mascotaActual);
 
 

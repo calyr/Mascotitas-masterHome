@@ -1,6 +1,7 @@
 package com.coursera.app.pm.mascotitas.restApi;
 
 
+import com.coursera.app.pm.mascotitas.restApi.model.LikesMedia;
 import com.coursera.app.pm.mascotitas.restApi.model.MascotaResponse;
 import com.coursera.app.pm.mascotitas.restApi.model.UsuarioResponse;
 
@@ -32,4 +33,10 @@ public interface EndpointsApi {
     @FormUrlEncoded
     @POST(ConstantesRestApi.SERVER_POST_TOKEN)
     Call<UsuarioResponse> registrarTokenId(@Field("token") String token, @Field("userInstagram") String userInstagram);
+
+    @POST(ConstantesRestApi.LIKES_URL_MEDIA)
+    Call<LikesMedia> likeImagen(@Path("media_id") String mediaId);
+
+    @GET(ConstantesRestApi.SEND_NOTIFICACION)
+    Call<UsuarioResponse> sendNotification(@Path("token") String token,@Path("usuario_instagram") String usuario,@Path("foto_id") String foto);
 }

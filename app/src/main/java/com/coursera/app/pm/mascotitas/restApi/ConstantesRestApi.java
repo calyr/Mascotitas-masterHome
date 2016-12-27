@@ -16,9 +16,13 @@ public class ConstantesRestApi {
     //Obtine la informacion de un usuario
     public static final String URL_GET_RECENT_MEDIA_USER = KEY_GET_RECENT_MEDIA_USER + KEY_ACCESS_TOKEN + ACCESS_TOKEN;
 
-    //Consulta my server
+    //Consulta my server HEROKU
     public static final String SERVER_URL_BASE              = "https://mighty-forest-19952.herokuapp.com/";
     public static final String SERVER_POST_TOKEN            = "registrar-usuario";
+    public static final String KEY_TOQUE_ANIMAL     = "toque-animal/{id}/{animal}";
+
+
+
 
     public final static String KEY_GET_FOLLOWS              = "follows";
 
@@ -36,4 +40,11 @@ public class ConstantesRestApi {
 
     //  https://api.instagram.com/v1/users/{user-id}/?access_token=ACCESS-TOKEN
     public final static String URL_GET_PROFILE_USER_WITH_ID = USER_ID_MEDIA_RECENT + KEY_ACCESS_TOKEN + ACCESS_TOKEN;
+
+    // Likes media
+    //https://api.instagram.com/v1/media/1394325059561543348_3584052004/likes
+    public final static String LIKES_URL_MEDIA = "media/{media_id}/likes"+ KEY_ACCESS_TOKEN + ACCESS_TOKEN;
+
+    //
+    public final static String SEND_NOTIFICACION = "send-notification/{token}/{usuario_instagram}/{foto_id}";
 }
