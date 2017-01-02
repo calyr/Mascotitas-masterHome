@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         setUpViewPager();
-
+        viewPager.setCurrentItem(1);
 
 
 
@@ -130,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_action_home);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_action_perfil);
+
 
     }
 }

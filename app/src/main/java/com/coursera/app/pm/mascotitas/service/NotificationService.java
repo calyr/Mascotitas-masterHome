@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
+import android.support.v4.app.NotificationCompat.WearableExtender;
 import android.util.Log;
 
 import com.coursera.app.pm.mascotitas.MainActivity;
@@ -22,7 +24,7 @@ import com.google.firebase.messaging.RemoteMessage;
  */
 public class NotificationService extends FirebaseMessagingService {
     public static final String TAG = "NotificationService";
-
+    public static final int NOTIFICATION_ID =    001;
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
 //        super.onMessageReceived(remoteMessage);
@@ -34,16 +36,21 @@ public class NotificationService extends FirebaseMessagingService {
 
         Uri sonido = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
 
+
+
         NotificationCompat.Builder notification = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.bone)
                 .setContentTitle("Notificación")
                 .setContentText(remoteMessage.getNotification().getBody())
                 .setSound(sonido)
                 .setAutoCancel(true)
-                .setContentIntent(pendingIntent);
+                .setContentIntent(pendingIntent)
+                .addAction(R.drawable.ic_full_dog,getString(R.string.texto_accion_toque), pendingIntent)
+        ;
 
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(0, notification.build());
+        NotificationManagerCompat notificationManager = (NotificationManagerCompat.from(this)) ;
+
+        notificationManager.notify(NOTIFICATION_ID, notification.build());
 
 
     }

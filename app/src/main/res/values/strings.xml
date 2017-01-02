@@ -41,5 +41,8 @@
     <string name="hintpetagram">Escribe tu usuario</string>
     <string name="like_success">Likes exitoso</string>
     <string name="like_notsuccess">Ocurrio un error al realizar el like</string>
+    <string name="texto_accion_toque">Devuelve el toque</string>
+    <string name="follow_correct">Usuario guardado Correctamente</string>
+    <string name="follow_incorrect">Usuario incorrecto, favor utilice los usuarios en modo sandbox.</string>
 
 </resources>

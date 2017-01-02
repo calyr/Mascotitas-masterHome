@@ -27,21 +27,34 @@ public class SessionManager {
     private static final String IS_LOGIN = "IsLoggedIn";
     public static final String KEY_NAME = "name";
 
+    private static final String USER_PERFIL = "USERNAME" ;
+    private static final String USER_PERFIL_ID = "USERNAMEID" ;
+    private static final String USER_PERFIL_PHOTO = "USERNAMEPHOTO" ;
+
     public SessionManager(Context _context) {
         this._context = _context;
         pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         editor = pref.edit();
     }
 
-    public void createSession(String account){
+
+
+
+    public void createSession(String account,String fullName, String id, String photo){
         editor.putBoolean(IS_LOGIN, true);
         editor.putString(KEY_NAME, account);
+        editor.putString(USER_PERFIL, fullName);
+        editor.putString(USER_PERFIL_ID, id);
+        editor.putString(USER_PERFIL_PHOTO, photo);
         editor.commit();
     }
 
     public HashMap<String, String> getUser(){
         HashMap<String, String> user = new HashMap<String, String>();
         user.put(KEY_NAME, pref.getString(KEY_NAME, null));
+        user.put(USER_PERFIL, pref.getString(USER_PERFIL, null));
+        user.put(USER_PERFIL_ID, pref.getString(USER_PERFIL_ID, null));
+        user.put(USER_PERFIL_PHOTO, pref.getString(USER_PERFIL_PHOTO, null));
         return user;
     }
 

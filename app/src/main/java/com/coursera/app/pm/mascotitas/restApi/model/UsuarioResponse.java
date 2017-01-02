@@ -9,6 +9,24 @@ public class UsuarioResponse {
     private String id;
     private String token;
     private String userInstagram;
+    private String urlImage;
+    private String fullName;
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
+    }
 
     public String getUserInstagram() {
         return userInstagram;
@@ -22,6 +40,8 @@ public class UsuarioResponse {
         this.id = id;
         this.token = token;
         this.userInstagram = userInstagram;
+        this.urlImage = null    ;
+        this.fullName = "";
 
     }
 

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.coursera.app.pm.mascotitas.PerfilFragment"
+    tools:context=".HomeFragment$PerfilFragment"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -26,7 +26,7 @@
 
 
             <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/imgFoto"
+                android:id="@+id/perfilImgFoto"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@drawable/quinto"
@@ -47,7 +47,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Catty"
-                    android:id="@+id/nombre"
+                    android:id="@+id/perfilNombre"
                     android:gravity="center_vertical|center_horizontal"
                     android:textSize="20dp"
                     android:textStyle="bold|italic"

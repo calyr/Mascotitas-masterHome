@@ -37,14 +37,12 @@ public class HomeFragment extends Fragment implements IHomeFragmentView {
 
     public HomeFragment() {
 
-
+        System.out.println("Ingrese al home fragment");
 
 
         // Required empty public constructor
 
         /*mascotas = new ArrayList<Mascota>();
-
-
 */
 
     }

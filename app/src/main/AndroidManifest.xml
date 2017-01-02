@@ -59,6 +59,11 @@
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
+        <receiver android:name=".ToqueAnimal">
+            <intent-filter>
+                <action android:name="TOQUE_ANIMAL"></action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

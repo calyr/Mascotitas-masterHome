@@ -2,10 +2,14 @@ package com.coursera.app.pm.mascotitas.restApi.adapter;
 
 import com.coursera.app.pm.mascotitas.restApi.ConstantesRestApi;
 import com.coursera.app.pm.mascotitas.restApi.EndpointsApi;
+import com.coursera.app.pm.mascotitas.restApi.deserializador.FollowDeserializador;
 import com.coursera.app.pm.mascotitas.restApi.deserializador.LikesMediaDeserializador;
 import com.coursera.app.pm.mascotitas.restApi.deserializador.MascotaDeserializador;
+import com.coursera.app.pm.mascotitas.restApi.deserializador.UsuarioDeserializador;
+import com.coursera.app.pm.mascotitas.restApi.model.FollowResponse;
 import com.coursera.app.pm.mascotitas.restApi.model.LikesMedia;
 import com.coursera.app.pm.mascotitas.restApi.model.MascotaResponse;
+import com.coursera.app.pm.mascotitas.restApi.model.UsuarioResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -49,6 +53,12 @@ public class RestApiAdapter {
     public Gson contruyeGsonDeserializadorMediaLikes(){
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(LikesMedia.class, new LikesMediaDeserializador());
+        return gsonBuilder.create();
+    }
+
+    public Gson contruyeGsonDeserializadorFollow(){
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(FollowResponse.class, new FollowDeserializador());
         return gsonBuilder.create();
     }
 

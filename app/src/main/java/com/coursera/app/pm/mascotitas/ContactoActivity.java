@@ -4,14 +4,17 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
+import android.support.v4.app.NotificationCompat.WearableExtender;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -55,10 +58,20 @@ public class ContactoActivity extends AppCompatActivity {
         correo = (EditText) findViewById(R.id.form_email);
         mensaje = (EditText) findViewById(R.id.form_description);
 
-        Intent i = new Intent(this, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_ONE_SHOT);
+        Intent i = new Intent();
+        i.setAction("TOQUE_ANIMAL");
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Uri sonido = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+
+        android.support.v7.app.NotificationCompat.Action action =
+                new NotificationCompat.Action.Builder(R.drawable.ic_full_dog,getString(R.string.texto_accion_toque),pendingIntent)
+                .build();
+        android.support.v7.app.NotificationCompat.WearableExtender wearableExtender =
+                new NotificationCompat.WearableExtender()
+                .setHintHideIcon(true)
+                .setBackground(BitmapFactory.decodeResource(getResources(), R.drawable.backgroundwear))
+                .setGravity(Gravity.CENTER_VERTICAL);
 
         NotificationCompat.Builder notification = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.bone)
@@ -66,9 +79,12 @@ public class ContactoActivity extends AppCompatActivity {
                 .setContentText("Hola Mundo")
                 .setSound(sonido)
                 .setAutoCancel(true)
-                .setContentIntent(pendingIntent);
+                .setContentIntent(pendingIntent)
+                .extend(wearableExtender.addAction(action))
+                //.addAction(R.drawable.ic_full_dog,getString(R.string.texto_accion_toque), pendingIntent)
+                ;
 
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManagerCompat notificationManager = (NotificationManagerCompat.from(this)) ;
         notificationManager.notify(0, notification.build());
 
         String token = FirebaseInstanceId.getInstance().getToken();
