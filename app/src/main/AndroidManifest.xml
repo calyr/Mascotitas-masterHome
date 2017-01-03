@@ -62,6 +62,7 @@
         <receiver android:name=".TouchWear">
             <intent-filter>
                 <action android:name="FOLLOW"></action>
+                <action android:name="UNFOLLOW"></action>
                 <action android:name="PERFIL"></action>
                 <action android:name="HOME"></action>
             </intent-filter>
