@@ -5,10 +5,12 @@ import com.coursera.app.pm.mascotitas.restApi.EndpointsApi;
 import com.coursera.app.pm.mascotitas.restApi.deserializador.FollowDeserializador;
 import com.coursera.app.pm.mascotitas.restApi.deserializador.LikesMediaDeserializador;
 import com.coursera.app.pm.mascotitas.restApi.deserializador.MascotaDeserializador;
+import com.coursera.app.pm.mascotitas.restApi.deserializador.RelationshipDeserializador;
 import com.coursera.app.pm.mascotitas.restApi.deserializador.UsuarioDeserializador;
 import com.coursera.app.pm.mascotitas.restApi.model.FollowResponse;
 import com.coursera.app.pm.mascotitas.restApi.model.LikesMedia;
 import com.coursera.app.pm.mascotitas.restApi.model.MascotaResponse;
+import com.coursera.app.pm.mascotitas.restApi.model.RelationshipResponse;
 import com.coursera.app.pm.mascotitas.restApi.model.UsuarioResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -70,5 +72,11 @@ public class RestApiAdapter {
                 .build()
                 ;
         return retrofit.create(EndpointsApi.class);
+    }
+
+    public Gson contruyeGsonDeserializadorRelationship() {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(RelationshipResponse.class, new RelationshipDeserializador());
+        return gsonBuilder.create();
     }
 }

@@ -45,7 +45,25 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         setUpViewPager();
-        viewPager.setCurrentItem(1);
+
+        Intent intent = this.getIntent();
+        Bundle parametros = intent.getExtras();
+
+
+        if(parametros !=  null){
+            String flagtab = parametros.get("flagtab").toString();
+
+            if (  flagtab.equals("ONE") ){
+                viewPager.setCurrentItem(0);
+            }else{
+                viewPager.setCurrentItem(1);
+
+            }
+
+
+        }
+
+
 
 
 

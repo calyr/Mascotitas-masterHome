@@ -58,20 +58,48 @@ public class ContactoActivity extends AppCompatActivity {
         correo = (EditText) findViewById(R.id.form_email);
         mensaje = (EditText) findViewById(R.id.form_description);
 
-        Intent i = new Intent();
-        i.setAction("TOQUE_ANIMAL");
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Uri sonido = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
 
-        android.support.v7.app.NotificationCompat.Action action =
-                new NotificationCompat.Action.Builder(R.drawable.ic_full_dog,getString(R.string.texto_accion_toque),pendingIntent)
+        //NOFICACION FOLLOW
+        Intent iFollow = new Intent();
+        iFollow.setAction("FOLLOW");
+        PendingIntent pendingIntentFollow = PendingIntent.getBroadcast(this, 0, iFollow, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        android.support.v7.app.NotificationCompat.Action actionFollow =
+                new NotificationCompat.Action.Builder(R.drawable.ic_full_dog,getString(R.string.texto_accion_toque_follow),pendingIntentFollow)
                 .build();
+
+        //NOTIFICACION PERFIL
+
+        Intent iPerfil = new Intent(this, MainActivity.class);
+        iPerfil.putExtra("flagtab","TWO");
+        iPerfil.setAction("PERFIL");
+        PendingIntent pendingIntentPerfil = PendingIntent.getBroadcast(this, 0, iPerfil, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        android.support.v7.app.NotificationCompat.Action actionPerfil =
+                new NotificationCompat.Action.Builder(R.drawable.ic_full_dog,getString(R.string.texto_accion_toque_perfil),pendingIntentPerfil)
+                        .build();
+
+        //NOTIFICACION HOME
+
+        Intent iHome = new Intent();
+        iHome.setAction("HOME");
+
+        PendingIntent pendingIntentHome = PendingIntent.getBroadcast(this, 0, iHome, PendingIntent.FLAG_UPDATE_CURRENT);
+        android.support.v7.app.NotificationCompat.Action actionHome =
+                new NotificationCompat.Action.Builder(R.drawable.ic_full_dog,getString(R.string.texto_accion_toque_home),pendingIntentHome)
+                        .build();
+
+
         android.support.v7.app.NotificationCompat.WearableExtender wearableExtender =
                 new NotificationCompat.WearableExtender()
                 .setHintHideIcon(true)
                 .setBackground(BitmapFactory.decodeResource(getResources(), R.drawable.backgroundwear))
                 .setGravity(Gravity.CENTER_VERTICAL);
+
+
+
 
         NotificationCompat.Builder notification = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.bone)
@@ -79,9 +107,9 @@ public class ContactoActivity extends AppCompatActivity {
                 .setContentText("Hola Mundo")
                 .setSound(sonido)
                 .setAutoCancel(true)
-                .setContentIntent(pendingIntent)
-                .extend(wearableExtender.addAction(action))
-                //.addAction(R.drawable.ic_full_dog,getString(R.string.texto_accion_toque), pendingIntent)
+                .extend(wearableExtender.addAction(actionFollow).addAction(actionHome).addAction(actionPerfil))
+
+
                 ;
 
         NotificationManagerCompat notificationManager = (NotificationManagerCompat.from(this)) ;

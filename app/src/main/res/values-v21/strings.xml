@@ -5,4 +5,8 @@
     <string name="texto_accion_toque">Devuelve el toque</string>
     <string name="follow_correct">Usuario guardado Correctamente</string>
     <string name="follow_incorrect">Usuario incorrecto, favor utilice los usuarios en modo sandbox.</string>
+    <string name="texto_accion_toque_home">Abrir Home</string>
+    <string name="texto_accion_toque_perfil">Abrir perfil</string>
+    <string name="texto_accion_toque_follow">Follow/Unfollow</string>
+    <string name="error_follow">Favor configure su cuenta para poder seguir.</string>
 </resources>

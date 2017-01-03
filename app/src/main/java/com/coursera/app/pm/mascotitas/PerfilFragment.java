@@ -38,8 +38,6 @@ public class PerfilFragment extends Fragment implements IPerfilFragmentView {
     private CircularImageView circularImageView;
 
 
-
-
     public PerfilFragment() {
         mascotas = new ArrayList<Mascota>();
         System.out.println("Ingreso al PerfilFragment New");

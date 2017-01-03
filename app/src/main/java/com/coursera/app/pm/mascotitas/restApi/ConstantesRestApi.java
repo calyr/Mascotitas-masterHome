@@ -9,7 +9,7 @@ public class ConstantesRestApi {
     public static final String VERSION                      = "/v1/" ;
     public static final String URL_BASE                     = "https://api.instagram.com"+VERSION;
     public static final String ACCESS_TOKEN                 = "3584052004.dfd2a34.653c10699fc84d15946951ec6fd515dd";
-    public static final String ACCESS_TOKEN_TEST = "3440197046.f096016.6e701e3ec983405bbd6bfebf9d665a51";
+    public static final String ACCESS_TOKEN_TEST            = "3440197046.f096016.6e701e3ec983405bbd6bfebf9d665a51";
     public static final String KEY_ACCESS_TOKEN             = "?access_token=";
     public static final String KEY_GET_RECENT_MEDIA_USER    = "users/self/media/recent/";
     public static final String KEY_GET_RECENT_MEDIA_USER_ID    = "users/{user-id}/media/recent/";
@@ -27,8 +27,8 @@ public class ConstantesRestApi {
     public static final String KEY_TOQUE_ANIMAL             = "toque-animal/{id}/{animal}";
 
 
-
-
+    //https://api.instagram.com/v1/users/3505167991/relationship?access_token=3440197046.f096016.6e701e3ec983405bbd6bfebf9d665a51
+    public final static String KEY_SET_FOLLOW = "users/{user-id}/relationship?access_token="+ACCESS_TOKEN_TEST ;
     public final static String KEY_GET_FOLLOWS              = "follows";
 
     // https://api.instagram.com/v1/users/self/?access_token=ACCESS-TOKEN
