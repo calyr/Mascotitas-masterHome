@@ -26,52 +26,69 @@ public class TouchWear extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         String ACCION_KEY_FOLLOW = "FOLLOW";
+        String ACCION_KEY_UNFOLLOW = "UNFOLLOW";
         String ACCION_KEY_PERFIL = "PERFIL";
         String ACCION_KEY_HOME = "HOME";
         String accion = intent.getAction();
         if  ( ACCION_KEY_FOLLOW.equals(accion)){
-            followUnfollow(context,intent);
-            Toast.makeText(context, "Follow/Unfollow", Toast.LENGTH_SHORT ).show();
+
+            Toast.makeText(context, "follow", Toast.LENGTH_SHORT ).show();
+            followUnfollow(context,intent,"follow");
+        }else if(ACCION_KEY_UNFOLLOW.equals(accion)){
+            Toast.makeText(context, "unfollow", Toast.LENGTH_SHORT ).show();
+            followUnfollow(context,intent,"unfollow");
+
         }else if(ACCION_KEY_PERFIL.equals(accion)){
             Toast.makeText(context, "Habriendo el perfil del usuario configurado", Toast.LENGTH_SHORT ).show();
-            openPerifl(context, intent);
+            Intent i = new Intent();
+            i.setClassName("com.coursera.app.pm.mascotitas", "com.coursera.app.pm.mascotitas.MainActivity");
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.putExtra("FLAGTAB","TWO");
+
+            context.startActivity(i);
+
 
         }else if(ACCION_KEY_HOME.equals(accion)){
             Toast.makeText(context, "Habriendo el home", Toast.LENGTH_SHORT ).show();
-            openHome(context, intent);
+            Intent i = new Intent();
+            i.setClassName("com.coursera.app.pm.mascotitas", "com.coursera.app.pm.mascotitas.MainActivity");
+            i.putExtra("FLAGTAB","ONE");
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(i);
+
 
         }
         //followUnfollow();
     }
 
-    public void followUnfollow(Context context, Intent intent){
+    public void followUnfollow(final Context context, Intent intent, final  String type){
 
         RestApiAdapter restApiAdapter = new RestApiAdapter();
         Gson gsonRelationship = restApiAdapter.contruyeGsonDeserializadorRelationship();
         EndpointsApi endpointsApi = restApiAdapter.establecerConexionRestApiInstagran(gsonRelationship);
         SessionManager session = new SessionManager(context.getApplicationContext());
         String userid = session.getUser().get("USERNAMEID");
-
+        System.out.println("La configuracion del usuario es ==" + session.getUser() + " ==");
+        System.out.println(userid);
         if( userid != "" ){
-            Toast.makeText(context, R.string.error_follow, Toast.LENGTH_LONG).show();
 
-            Call<RelationshipResponse> relationshipResponseCall = endpointsApi.setRelationship(userid,"follow");
+            Call<RelationshipResponse> relationshipResponseCall = endpointsApi.setRelationship(userid,type);
             Log.d(TAG, "MascotaAdapter imagen" );
             relationshipResponseCall.enqueue(new Callback<RelationshipResponse>() {
                 @Override
                 public void onResponse(Call<RelationshipResponse> call, Response<RelationshipResponse> response) {
 
-                    Log.d(TAG, "INGRESO AL WEB SERVICE TOUCHWEAR");
                     if (response.isSuccessful()){
-                        Log.d(TAG, "OKEY");
 
                         RelationshipResponse lista = response.body();
                         Log.d(TAG, "onResponse: " + new Gson().toJson(lista));
+                        Toast.makeText(context, " "+ type +" success", Toast.LENGTH_LONG).show();
+
                     }else{
+                        Toast.makeText(context, "Ocurrio un problema porfavor vuelva a intentar", Toast.LENGTH_LONG).show();
 
                         Log.d(TAG, "onResponse: ERROR" + new Gson().toJson(response.errorBody()));
                         //                               response.errorBody()
-                        Log.d(TAG, "onResponse: NOOKE");
                     }
 
                 }
@@ -79,6 +96,8 @@ public class TouchWear extends BroadcastReceiver {
                 public void onFailure(Call<RelationshipResponse> call, Throwable t) {
                     Log.d(TAG, "Ocurrio un error");
                     Log.e(TAG, t.toString());
+                    Toast.makeText(context, R.string.failure, Toast.LENGTH_LONG).show();
+
 
                 }
             });
@@ -88,18 +107,5 @@ public class TouchWear extends BroadcastReceiver {
 
     }
 
-    public void openPerifl(Context context, Intent intent){
-        Intent intentone = new Intent(context.getApplicationContext(), MainActivity.class);
-        intentone.putExtra("flagtab","ONE");
-        context.startActivity(intentone);
 
-
-    }
-
-    public void openHome(Context context, Intent intent){
-        Intent intentone = new Intent(context.getApplicationContext(), MainActivity.class);
-        intentone.putExtra("flagtab","TWO");
-        context.startActivity(intentone);
-
-    }
 }
