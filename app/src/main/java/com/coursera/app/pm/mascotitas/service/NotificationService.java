@@ -4,12 +4,14 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.app.NotificationCompat.WearableExtender;
 import android.util.Log;
+import android.view.Gravity;
 
 import com.coursera.app.pm.mascotitas.MainActivity;
 import com.coursera.app.pm.mascotitas.R;
@@ -38,19 +40,67 @@ public class NotificationService extends FirebaseMessagingService {
 
 
 
+        //NOFICACION FOLLOW
+        Intent iFollow = new Intent();
+        iFollow.setAction("FOLLOW");
+        PendingIntent pendingIntentFollow = PendingIntent.getBroadcast(this, 0, iFollow, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        android.support.v7.app.NotificationCompat.Action actionFollow =
+                new NotificationCompat.Action.Builder(R.drawable.ic_full_follow,getString(R.string.texto_accion_toque_follow),pendingIntentFollow)
+                        .build();
+
+        //NOFICACION FOLLOW
+        Intent iUnfollow = new Intent();
+        iUnfollow.setAction("UNFOLLOW");
+        PendingIntent pendingIntentUnfollow = PendingIntent.getBroadcast(this, 0, iUnfollow, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        android.support.v7.app.NotificationCompat.Action actionUnfollow =
+                new NotificationCompat.Action.Builder(R.drawable.ic_full_unfollow,getString(R.string.texto_accion_toque_unfollow),pendingIntentUnfollow)
+                        .build();
+
+        //NOTIFICACION PERFIL
+
+        Intent iPerfil = new Intent();
+        iPerfil.setAction("PERFIL");
+        PendingIntent pendingIntentPerfil = PendingIntent.getBroadcast(this, 0, iPerfil, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        android.support.v7.app.NotificationCompat.Action actionPerfil =
+                new NotificationCompat.Action.Builder(R.drawable.ic_full_perfil,getString(R.string.texto_accion_toque_perfil),pendingIntentPerfil)
+                        .build();
+
+        //NOTIFICACION HOME
+
+        Intent iHome = new Intent();
+        iHome.setAction("HOME");
+
+        PendingIntent pendingIntentHome = PendingIntent.getBroadcast(this, 0, iHome, PendingIntent.FLAG_UPDATE_CURRENT);
+        android.support.v7.app.NotificationCompat.Action actionHome =
+                new NotificationCompat.Action.Builder(R.drawable.ic_full_home,getString(R.string.texto_accion_toque_home),pendingIntentHome)
+                        .build();
+
+
+        android.support.v7.app.NotificationCompat.WearableExtender wearableExtender =
+                new NotificationCompat.WearableExtender()
+                        .setHintHideIcon(true)
+                        .setBackground(BitmapFactory.decodeResource(getResources(), R.drawable.backgroundwear))
+                        .setGravity(Gravity.CENTER_VERTICAL);
+
+
+
+
         NotificationCompat.Builder notification = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.bone)
                 .setContentTitle("Notificación")
-                .setContentText(remoteMessage.getNotification().getBody())
+                .setContentText("Contacto Multiples Acciones Notification Firebase")
                 .setSound(sonido)
                 .setAutoCancel(true)
-                .setContentIntent(pendingIntent)
-                .addAction(R.drawable.ic_full_dog,getString(R.string.texto_accion_toque), pendingIntent)
-        ;
+                .extend(wearableExtender.addAction(actionFollow).addAction(actionUnfollow).addAction(actionHome).addAction(actionPerfil))
+
+
+                ;
 
         NotificationManagerCompat notificationManager = (NotificationManagerCompat.from(this)) ;
-
-        notificationManager.notify(NOTIFICATION_ID, notification.build());
+        notificationManager.notify(0, notification.build());
 
 
     }

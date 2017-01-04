@@ -35,14 +35,13 @@ public class LikesMediaDeserializador implements JsonDeserializer<LikesMedia> {
     private LikesMedia deserializarMascotaDeJson(JsonObject mascotaResponseData){
         LikesMedia likesMedia = new LikesMedia();
 
-            Log.d(TAG, " deserializarMascotaDeJson  " + new Gson().toJson(mascotaResponseData) );
-            JsonObject meta = mascotaResponseData.get(JsonKeys.META).getAsJsonObject();
+        Log.d(TAG, " LikesMedia  " + new Gson().toJson(mascotaResponseData) );
+        JsonObject meta = mascotaResponseData.get(JsonKeys.META).getAsJsonObject();
 
-            int code = meta.get(JsonKeys.CODE).getAsInt();
-            likesMedia.setCode(code);
+        int code = meta.get(JsonKeys.CODE).getAsInt();
+        likesMedia.setCode(code);
 
-
-        Log.d(TAG, "deserializarMascotaDeJson: result" + new Gson().toJson(likesMedia));
+        Log.d(TAG, "LikesMedia: result" + new Gson().toJson(likesMedia));
 
         return likesMedia;
     }
