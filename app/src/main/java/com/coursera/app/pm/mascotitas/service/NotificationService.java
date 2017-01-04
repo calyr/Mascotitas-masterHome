@@ -38,8 +38,6 @@ public class NotificationService extends FirebaseMessagingService {
 
         Uri sonido = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
 
-
-
         //NOFICACION FOLLOW
         Intent iFollow = new Intent();
         iFollow.setAction("FOLLOW");
@@ -48,7 +46,6 @@ public class NotificationService extends FirebaseMessagingService {
         android.support.v7.app.NotificationCompat.Action actionFollow =
                 new NotificationCompat.Action.Builder(R.drawable.ic_full_follow,getString(R.string.texto_accion_toque_follow),pendingIntentFollow)
                         .build();
-
         //NOFICACION FOLLOW
         Intent iUnfollow = new Intent();
         iUnfollow.setAction("UNFOLLOW");

@@ -20,7 +20,7 @@ public class ConstantesRestApi {
     public static final String URL_GET_RECENT_MEDIA_USER = KEY_GET_RECENT_MEDIA_USER + KEY_ACCESS_TOKEN + ACCESS_TOKEN;
     //https://api.instagram.com/v1/users/{user-id}/media/recent/?access_token=ACCESS-TOKEN
 
-    public static final String URL_GET_RECENT_MEDIA_USER_TEST = KEY_GET_RECENT_MEDIA_USER_ID + KEY_ACCESS_TOKEN + ACCESS_TOKEN_TEST;
+    public static final String URL_GET_RECENT_MEDIA_USER_TEST = KEY_GET_RECENT_MEDIA_USER_ID + KEY_ACCESS_TOKEN + ACCESS_TOKEN;
     //Consulta my server HEROKU
     public static final String SERVER_URL_BASE              = "https://mighty-forest-19952.herokuapp.com/";
     public static final String SERVER_POST_TOKEN            = "registrar-usuario";
@@ -37,7 +37,7 @@ public class ConstantesRestApi {
     //Obtengo los seguidores
     // https://api.instagram.com/v1/users/self/follows?access_token=ACCESS-TOKEN
     // https://api.instagram.com/v1/users/self/follows?access_token=3440197046.f096016.6e701e3ec983405bbd6bfebf9d665a51
-    public final static String URL_GET_FOLLOWS = KEY_GET_PROFILE_USER + KEY_GET_FOLLOWS + KEY_ACCESS_TOKEN +ACCESS_TOKEN_TEST;
+    public final static String URL_GET_FOLLOWS = KEY_GET_PROFILE_USER + KEY_GET_FOLLOWS + KEY_ACCESS_TOKEN +ACCESS_TOKEN;
 
     //Obtener los medios recientes por id de usuario
     //https://api.instagram.com/v1/users/{user-id}/media/recent/?access_token=ACCESS-TOKEN

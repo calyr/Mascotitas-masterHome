@@ -78,7 +78,7 @@ public class PerfilFragment extends Fragment implements IPerfilFragmentView {
                     .placeholder(R.drawable.bone)
                     .into(circularImageView);
         }else{
-            perfilName.setText("Perfil no configurado. Puedes probar con (duquedux  puppies.januan petagmem)");
+            perfilName.setText("Perfil no configurado. Puedes probar con usuario modo sandbox (calyr_software)");
 
         }
 

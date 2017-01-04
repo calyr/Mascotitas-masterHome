@@ -77,24 +77,25 @@ public class ConfigurarCuentaActivity extends AppCompatActivity {
             focusView.requestFocus();
         }else{
             //session.createSession(userInstagram);
-            configurarAccount(userInstagram);
             Toast.makeText(this, "Guardando cuenta..... Espere porfavor " +userInstagram, Toast.LENGTH_LONG).show();
+            configurarAccount(userInstagram);
+
 
         }
 
     }
-    
+
     public void configurarAccount(final String userInstagram){
         RestApiAdapter restApiAdapter = new RestApiAdapter();
         Gson gsonMediaRecent = restApiAdapter.contruyeGsonDeserializadorFollow();
         EndpointsApi endpointsApi = restApiAdapter.establecerConexionRestApiInstagran(gsonMediaRecent);
         Call<FollowResponse> mascotaResponseCall = endpointsApi.getRecentMediaFollow();
-        Log.d(TAG, "mEtodo configurarAccount" );
         mascotaResponseCall.enqueue(new Callback<FollowResponse>(){
             @Override
             public void onResponse(Call<FollowResponse> call, Response<FollowResponse> response) {
                 FollowResponse lista = response.body();
-                Log.d(TAG, "INGRESO AL WEB SERVICE FOLLOW");
+                Log.d(TAG, "INGRESO AL WEB SERVICE CONFIGURAR CUENTA");
+                Log.d(TAG, "onResponse: " + ConstantesRestApi.URL_GET_FOLLOWS);
                 Log.d(TAG, lista.getSeguidores().size() + " === ");
                 int contador = 0;
                 for(int i=0;i< lista.getSeguidores().size(); i++){
@@ -107,7 +108,7 @@ public class ConfigurarCuentaActivity extends AppCompatActivity {
                                 lista.getSeguidores().get(i).getFullName(),
                                 lista.getSeguidores().get(i).getId(),
                                 lista.getSeguidores().get(i).getUrlImage());
-                         Intent intent = new Intent(ConfigurarCuentaActivity.this, MainActivity.class);
+                        Intent intent = new Intent(ConfigurarCuentaActivity.this, MainActivity.class);
                         startActivity(intent);
                     }
                 }
@@ -126,6 +127,7 @@ public class ConfigurarCuentaActivity extends AppCompatActivity {
             public void onFailure(Call<FollowResponse> call, Throwable t) {
                 Log.d(TAG, "Ocurrio un error");
                 Log.e(TAG, t.toString());
+                Toast.makeText(getApplicationContext(), R.string.follow_failure, Toast.LENGTH_LONG).show();
 
             }
         });
