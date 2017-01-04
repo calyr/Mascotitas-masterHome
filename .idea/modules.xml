@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Mascotitas-masterHome.iml" filepath="$PROJECT_DIR$/Mascotitas-masterHome.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mascotitas-masterHomeAW.iml" filepath="$PROJECT_DIR$/Mascotitas-masterHomeAW.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
