@@ -67,18 +67,26 @@ public class ContactoActivity extends AppCompatActivity {
         PendingIntent pendingIntentFollow = PendingIntent.getBroadcast(this, 0, iFollow, PendingIntent.FLAG_UPDATE_CURRENT);
 
         android.support.v7.app.NotificationCompat.Action actionFollow =
-                new NotificationCompat.Action.Builder(R.drawable.ic_full_dog,getString(R.string.texto_accion_toque_follow),pendingIntentFollow)
-                .build();
+                new NotificationCompat.Action.Builder(R.drawable.ic_full_follow,getString(R.string.texto_accion_toque_follow),pendingIntentFollow)
+                        .build();
+
+        //NOFICACION FOLLOW
+        Intent iUnfollow = new Intent();
+        iUnfollow.setAction("UNFOLLOW");
+        PendingIntent pendingIntentUnfollow = PendingIntent.getBroadcast(this, 0, iUnfollow, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        android.support.v7.app.NotificationCompat.Action actionUnfollow =
+                new NotificationCompat.Action.Builder(R.drawable.ic_full_unfollow,getString(R.string.texto_accion_toque_unfollow),pendingIntentUnfollow)
+                        .build();
 
         //NOTIFICACION PERFIL
 
-        Intent iPerfil = new Intent(this, MainActivity.class);
-        iPerfil.putExtra("flagtab","TWO");
+        Intent iPerfil = new Intent();
         iPerfil.setAction("PERFIL");
         PendingIntent pendingIntentPerfil = PendingIntent.getBroadcast(this, 0, iPerfil, PendingIntent.FLAG_UPDATE_CURRENT);
 
         android.support.v7.app.NotificationCompat.Action actionPerfil =
-                new NotificationCompat.Action.Builder(R.drawable.ic_full_dog,getString(R.string.texto_accion_toque_perfil),pendingIntentPerfil)
+                new NotificationCompat.Action.Builder(R.drawable.ic_full_perfil,getString(R.string.texto_accion_toque_perfil),pendingIntentPerfil)
                         .build();
 
         //NOTIFICACION HOME
@@ -88,15 +96,15 @@ public class ContactoActivity extends AppCompatActivity {
 
         PendingIntent pendingIntentHome = PendingIntent.getBroadcast(this, 0, iHome, PendingIntent.FLAG_UPDATE_CURRENT);
         android.support.v7.app.NotificationCompat.Action actionHome =
-                new NotificationCompat.Action.Builder(R.drawable.ic_full_dog,getString(R.string.texto_accion_toque_home),pendingIntentHome)
+                new NotificationCompat.Action.Builder(R.drawable.ic_full_home,getString(R.string.texto_accion_toque_home),pendingIntentHome)
                         .build();
 
 
         android.support.v7.app.NotificationCompat.WearableExtender wearableExtender =
                 new NotificationCompat.WearableExtender()
-                .setHintHideIcon(true)
-                .setBackground(BitmapFactory.decodeResource(getResources(), R.drawable.backgroundwear))
-                .setGravity(Gravity.CENTER_VERTICAL);
+                        .setHintHideIcon(true)
+                        .setBackground(BitmapFactory.decodeResource(getResources(), R.drawable.backgroundwear))
+                        .setGravity(Gravity.CENTER_VERTICAL);
 
 
 
@@ -104,10 +112,10 @@ public class ContactoActivity extends AppCompatActivity {
         NotificationCompat.Builder notification = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.bone)
                 .setContentTitle("Notificación")
-                .setContentText("Hola Mundo")
+                .setContentText("Contacto Multiples Acciones")
                 .setSound(sonido)
                 .setAutoCancel(true)
-                .extend(wearableExtender.addAction(actionFollow).addAction(actionHome).addAction(actionPerfil))
+                .extend(wearableExtender.addAction(actionFollow).addAction(actionUnfollow).addAction(actionHome).addAction(actionPerfil))
 
 
                 ;
